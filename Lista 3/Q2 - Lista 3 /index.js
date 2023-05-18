@@ -43,7 +43,7 @@ window.addEventListener("load", function () {
             botaoSacar.textContent = "Sacar100";
             botaoDepositar.textContent = "Depositar100";
 
-            novoCliente.textContent = `${cliente.nomeConta}, saldo: ${cliente.saldoConta}`;
+            novoCliente.textContent = `Cliente: ${cliente.nomeConta} - Saldo: R$${cliente.saldoConta}`;
 
             novoCliente.append(espaco);
             novoCliente.appendChild(botaoSacar);

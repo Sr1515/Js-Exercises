@@ -56,7 +56,7 @@ window.addEventListener("load", function () {
             elemento.appendChild(valorTransacao);
             lista.appendChild(elemento);
 
-            resultadoSaldo.textContent = `O saldo total é de: ${totalSaldo}`
+            resultadoSaldo.textContent = `O saldo total é de: R$: ${totalSaldo}`
             div.appendChild(resultadoSaldo);
         });
     };
