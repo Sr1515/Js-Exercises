@@ -1,0 +1,45 @@
+#main {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    flex-wrap: nowrap;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-top: 160px;
+}
+
+#inserir-dados {
+    border:solid 2px;
+    width: 600px;
+    height: 100px;
+}
+
+#nomeProduto {
+    border-radius: 1px;
+    height: 20px;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+#botao {
+    width: 100px;
+    height: 27px;
+}
+
+#precoProduto {
+    border-radius: 1px;
+    height: 20px;
+}
+
+#title {
+    margin-left: 20px;
+}
+
+
+#tabela {
+    border:solid 1px;
+    width: 600px;
+    height: 50px;
+}
