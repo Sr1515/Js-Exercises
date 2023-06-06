@@ -24,20 +24,31 @@ const removerItem = item => {
     localStorage.removeItem(item);
 }
 
+/* pega uma chave do localStorage passada pra ela e retorna seus valores */
+const retornaElemento = item => {
+    return JSON.parse(localStorage.getItem(item));
+ }
+
+/* função responsável por modificar o estado do item pra false */ 
+const desmarcarItem = item => {
+    item.comprado = false;
+    adicionarItem(item);
+}
+
 /* função responsável por receber o nome de uma chave pega esse objeto do localStorage
 e converter para ser modificado, depois verifica se o campo produto.comprado está falso ou true
 trocando seus valores cada vez que a função é chamada, depois chama a função adicionarItem que joga o 
 resultado no localStorage novamente*/
 const marcarItem = item => {
-    let produto = JSON.parse(localStorage.getItem(item));
+    let produto = retornaElemento(item);
     if (produto.comprado == false){
         produto.comprado = true;
         adicionarItem(produto);
-    }else {
-        produto.comprado = false;
-        adicionarItem(produto);
-    } 
+    } else {
+        desmarcarItem(produto);
+    }
 }
+
 
 /* função responsável por adicionar e retornar uma lista de keys presentes no localStorage*/ 
 const listar = () => {
@@ -50,8 +61,10 @@ const listar = () => {
 };
 
 
+
+
 // responsável por exportar as funções implementadas
-export {Item, adicionarItem, removerItem, marcarItem, listar};
+export {Item, adicionarItem, removerItem, marcarItem, listar, retornaElemento};
 
 
 

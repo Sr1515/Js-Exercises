@@ -1,4 +1,4 @@
-import {Item, adicionarItem, removerItem, marcarItem, listar} from './modulos/lista.js';
+import {Item, adicionarItem, removerItem, marcarItem, listar, retornaElemento} from './modulos/lista.js';
 
 window.addEventListener("load", function (){
     const botao = document.getElementById("botao");
@@ -34,7 +34,7 @@ window.addEventListener("load", function (){
         list.forEach(element => {
             /* pega o nome da chave e pega o objeto com o nome e
             retorna o objeto convertido para poder ser utilizado */
-            const item = JSON.parse(localStorage.getItem(element));
+            const item = retornaElemento(element);
 
             // cria os elementos de linha para ser adiciona na tabela
             const elemento = document.createElement("tr");
