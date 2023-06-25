@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Jogadores</title>
+</head>
+<body>
+    <h1>Lista de Jogadores</h1>
+
+    <section id="informacoes">
+        <h2>Informações da partida</h2>
+        <div id="tituloPartida"></div>
+        <div id="localPartida"></div>
+        <div id="dataHoraPartida"></div>
+    </section> 
+
+    <body>
+        <section id="main">
+            <div id="inserir-dados">   
+                <h1 id="title">Adicionar jogadores</h1>
+    
+                <form action="http://localhost:3000/lista" method="post">
+                    <label for="nomeJogador">Nome</label>
+                    <input type="text" id="nomeJogador" name="nomeJogador" placeholder="Digite o nome da pessoa">
+                    <label for="telefoneJogador">Telefone</label>
+                    <input type="number" id="telefoneJogador" name="telefoneJogador" placeholder="Digite o número de telefone">
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+
+            <br>
+            <br>
+
+            <table border="2" id="tabela">
+                
+            </table>
+
+        </section>
+    <script src="index.js"></script>
+</body>
+</html>
