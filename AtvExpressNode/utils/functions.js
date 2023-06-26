@@ -17,4 +17,4 @@ const jogador = (nome, telefone, presenca = true) => {
 }
 
 
-export {Partida, jogador};
+export {Partida, jogador };

@@ -15,7 +15,9 @@ window.addEventListener("load", () => {
     const dataHoraPartida = document.querySelector("#dataHoraPartida");
 
     tituloPartida.textContent = `Nome da Partida: ${PartidaJogo.titulo}`;
+
     localPartida.textContent = `Local: ${PartidaJogo.local}`;
+
     dataHoraPartida.textContent = `Data e Hora: ${PartidaJogo.dataHora}`;
 
     menu.appendChild(tituloPartida);
@@ -28,7 +30,6 @@ window.addEventListener("load", () => {
     carregarInformacoes(arquivoJson);
 
     const jogadores = [];
-
     Array.from(arquivoJson.jogadores).forEach(element => {
         jogadores.push(element);
     });
@@ -44,12 +45,23 @@ window.addEventListener("load", () => {
     // cria e adiciona os nome das colunas da tabela
     const nome = document.createElement("td");
     nome.textContent = "Nome";
+    nome.style.width = "300px";
+    nome.style.textAlign = "center";
+
     const telefone = document.createElement("td");
     telefone.textContent = "Telefone";
+    telefone.style.width = "300px";
+    telefone.style.textAlign = "center";
+
     const presenca = document.createElement("td");
     presenca.textContent = "Presença";
+    presenca.style.width = "300px";
+    presenca.style.textAlign = "center";
+
     const acoes = document.createElement("td");
     acoes.textContent = "Ações";
+    acoes.style.width = "300px";
+    acoes.style.textAlign = "center";
 
     // adiciona as colunas na tabela
     topo.append(nome);
@@ -61,18 +73,23 @@ window.addEventListener("load", () => {
     jogadores.forEach(element => {
         const elemento = document.createElement("tr");
         const nomeJogador = document.createElement("td");
+        nomeJogador.style.width = "300px";
+
         const telefoneJogador = document.createElement("td");
+        telefoneJogador.style.width = "300px";
         const presencaJogador = document.createElement("td");
+
         const acoes = document.createElement("td");
+        acoes.style.width = "300px";
+        
         const botaoAcoes = document.createElement("button");
 
         const input = document.createElement('input');
         input.type = "checkbox";
         input.name = "name";
-
         input.checked = `${element.presenca}`;
-
         presencaJogador.append(input);
+        
         botaoAcoes.textContent = "Remover";
         nomeJogador.textContent = `${element.nome}`;
 
@@ -86,16 +103,9 @@ window.addEventListener("load", () => {
         tabela.appendChild(elemento);
 
         
-        input.onclick = function() {
+        input.addEventListener("click",  function() {
           fetch(`/jogador/${element.telefone}`, {method: "PATCH"})
-          .then( () => {
-            fetch("http://localhost:3000/listaObjeto")
-            .then((resposta) => resposta.json())
-            .then((arquivoJson) => {
-            render(arquivoJson);
-            });
-          })
-        }
+        })
 
         botaoAcoes.addEventListener("click", function () {
             fetch(`/jogador/${element.telefone}`, {method: "DELETE"})

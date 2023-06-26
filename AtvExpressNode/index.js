@@ -5,7 +5,6 @@ import moment from "moment";
 moment.locale("pt-br");
 
 const content = "database.json";
-
 const port = 3000; 
 const app = express();
 
@@ -69,10 +68,9 @@ app.post("/lista", (req, res) => {
         escreverArquivos(req, res, arquivo);
         res.redirect('/lista');
     })
-
-    
 });
 
+// alterar o status de presença de um jogador pra true ou false
 app.patch("/jogador/:telefone", (req, res) => {
     const novoArray = [];
     const {telefone} = req.params;
@@ -87,10 +85,11 @@ app.patch("/jogador/:telefone", (req, res) => {
         });
         copy.jogadores = novoArray;
         escreverArquivos(req, res, copy);
-        res.send("ok");
     })
 })
 
+
+// deletar um jogador da lista pelo o numero de telefone
 app.delete("/jogador/:telefone", (req, res) => {
     const novoArray = [];
     const {telefone} = req.params;
@@ -104,7 +103,7 @@ app.delete("/jogador/:telefone", (req, res) => {
         });
         copy.jogadores = novoArray;
         escreverArquivos(req, res, copy);
-        res.send("ok");
+        res.redirect("/lista");
     })
 })
 
