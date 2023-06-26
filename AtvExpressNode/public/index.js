@@ -34,9 +34,6 @@ window.addEventListener("load", () => {
         jogadores.push(element);
     });
 
-    console.log(jogadores);
-
-
     const tabela = document.getElementById("tabela");
     const topo = document.createElement("tr");
         
@@ -87,7 +84,7 @@ window.addEventListener("load", () => {
         const input = document.createElement('input');
         input.type = "checkbox";
         input.name = "name";
-        input.checked = `${element.presenca}`;
+        input.checked = element.presenca;
         presencaJogador.append(input);
         
         botaoAcoes.textContent = "Remover";
