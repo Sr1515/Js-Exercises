@@ -81,11 +81,16 @@ window.addEventListener("load", () => {
         
         const botaoAcoes = document.createElement("button");
 
+
         const input = document.createElement('input');
         input.type = "checkbox";
         input.name = "name";
         input.checked = element.presenca;
         presencaJogador.append(input);
+
+        if (element.presenca) {
+          elemento.style.backgroundColor = "green";
+        }
         
         botaoAcoes.textContent = "Remover";
         nomeJogador.textContent = `${element.nome}`;
@@ -101,7 +106,9 @@ window.addEventListener("load", () => {
 
         
         input.addEventListener("click",  function() {
-          fetch(`/jogador/${element.telefone}`, {method: "PATCH"})
+          fetch(`/jogador/${element.telefone}`, {method: "PATCH"}).then(() => {
+            window.location.replace("http://localhost:3000/lista.html");
+          })
         })
 
         botaoAcoes.addEventListener("click", function () {

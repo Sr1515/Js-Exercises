@@ -85,6 +85,9 @@ app.patch("/jogador/:telefone", (req, res) => {
         });
         copy.jogadores = novoArray;
         escreverArquivos(req, res, copy);
+        res.json({
+            "status": "ok"
+        })
     })
 })
 
@@ -103,7 +106,9 @@ app.delete("/jogador/:telefone", (req, res) => {
         });
         copy.jogadores = novoArray;
         escreverArquivos(req, res, copy);
-        res.redirect("/lista");
+        res.json({
+            "status": "ok"
+        });
     })
 })
 
