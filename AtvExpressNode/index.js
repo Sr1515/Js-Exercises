@@ -70,6 +70,21 @@ app.post("/lista", (req, res) => {
     })
 });
 
+
+app.delete("/lista/:titulo", (req, res) => {
+    const novoArquivo = " ";
+    const {titulo} = req.params;
+    lerArquivos()
+    .then((arquivo) => {
+       if (arquivo.titulo == titulo){
+        escreverArquivos(req, res, novoArquivo);
+       } 
+       res.json({
+        "status": "ok"
+       })
+    })
+})
+
 // alterar o status de presença de um jogador pra true ou false
 app.patch("/jogador/:telefone", (req, res) => {
     const novoArray = [];

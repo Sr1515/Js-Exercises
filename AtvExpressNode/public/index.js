@@ -38,27 +38,40 @@ window.addEventListener("load", () => {
     const topo = document.createElement("tr");
         
     tabela.innerHTML = null;
+    tabela.style.border = "black";
 
     // cria e adiciona os nome das colunas da tabela
     const nome = document.createElement("td");
     nome.textContent = "Nome";
     nome.style.width = "300px";
+    nome.style.height = "40px";
+    nome.style.fontSize = "20px";
     nome.style.textAlign = "center";
+    nome.style.backgroundColor = "#ee964b";
 
     const telefone = document.createElement("td");
     telefone.textContent = "Telefone";
     telefone.style.width = "300px";
+    telefone.style.height = "40px";
+    telefone.style.fontSize = "20px";
     telefone.style.textAlign = "center";
+    telefone.style.backgroundColor = "#ee964b";
 
     const presenca = document.createElement("td");
     presenca.textContent = "Presença";
     presenca.style.width = "300px";
+    presenca.style.height = "40px";
+    presenca.style.fontSize = "20px";
     presenca.style.textAlign = "center";
+    presenca.style.backgroundColor = "#ee964b";
 
     const acoes = document.createElement("td");
     acoes.textContent = "Ações";
     acoes.style.width = "300px";
+    acoes.style.height = "40px";
+    acoes.style.fontSize = "20px";
     acoes.style.textAlign = "center";
+    acoes.style.backgroundColor = "#ee964b";
 
     // adiciona as colunas na tabela
     topo.append(nome);
@@ -69,17 +82,27 @@ window.addEventListener("load", () => {
 
     jogadores.forEach(element => {
         const elemento = document.createElement("tr");
+
         const nomeJogador = document.createElement("td");
-        nomeJogador.style.width = "300px";
+        nomeJogador.style.height = "30px";
+        nomeJogador.style.textAlign = "center";
+        nomeJogador.style.fontSize = "20px";
 
         const telefoneJogador = document.createElement("td");
-        telefoneJogador.style.width = "300px";
+        telefoneJogador.style.height = "30px";
+        telefoneJogador.style.textAlign = "center";
+        telefoneJogador.style.fontSize = "20px";
+
         const presencaJogador = document.createElement("td");
+        presencaJogador.style.textAlign = "center"
 
         const acoes = document.createElement("td");
-        acoes.style.width = "300px";
-        
+        acoes.style.textAlign = "center"
+
         const botaoAcoes = document.createElement("button");
+        botaoAcoes.style.backgroundColor = "#ff4d6d";
+        botaoAcoes.style.borderRadius = "25px"
+        botaoAcoes.style.fontSize = "19px"
 
 
         const input = document.createElement('input');
@@ -89,7 +112,7 @@ window.addEventListener("load", () => {
         presencaJogador.append(input);
 
         if (element.presenca) {
-          elemento.style.backgroundColor = "green";
+          elemento.style.backgroundColor = "#90ee90";
         }
         
         botaoAcoes.textContent = "Remover";
@@ -103,6 +126,14 @@ window.addEventListener("load", () => {
         elemento.append(presencaJogador);
         elemento.append(acoes);
         tabela.appendChild(elemento);
+
+        const buttonDeletePartida = document.querySelector("#button-delete");
+
+        buttonDeletePartida.addEventListener("click", function () {
+          fetch(`/lista/${arquivoJson.titulo}`, {method: "DELETE"}).then(() => {
+            window.location.replace("http://localhost:3000/");
+          })
+        })
 
         
         input.addEventListener("click",  function() {

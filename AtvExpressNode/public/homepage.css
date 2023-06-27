@@ -1,5 +1,10 @@
+body {
+    background-color: #b3c5d7;
+}
+
 #topo-page {
     display: flex;
+    color: black;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -17,11 +22,22 @@
 #form {
     border: 2px solid;
     padding: 30px;
-    background-color: bisque;
+    background-color: #bad7f2;
+}
+
+#title-form {
+    font-size: 30px;
+    padding-top: -20px;
+    padding-bottom: 30px;
+    text-align: center;
 }
 
 .elementos {
     padding-bottom: 30px;
+}
+
+label {
+    font-size: 20px;
 }
 
 #input-titulo {
@@ -48,9 +64,21 @@
 #button-home {
     height: 40px;
     width: 200px;
+    background-color: #f6ae2d;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+#button-footer {
+    height: 40px;
+    width: 200px;
+    background-color: #f6ae2d;
+    border-radius: 25px;
+    text-decoration: none;
 }
 
 #footer-page {
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center;
